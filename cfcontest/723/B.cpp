@@ -13,44 +13,32 @@ using namespace std;
 
 void solve()
 {
-	ll n,one1=0,zero1=0,tag1 = 0;
-	ll one2=0,zero2=0,tag2 = 0;
-	string a,b;
+	string s;
+	cin>>s;
 
-	cin>>n>>a>>b;
+	ll len = s.size();
 
-	for(ll i=0;i<n;i++){
-		if(a[0]=='1')
-		{
-			one1++;
-		}
-		else{
-			zero1++;
-		}
-		if(zero1==one1){
-			tag1++;
-		}
+	ll n = conv(s,len);
+	ll p = 0;
+	if(s[len-1]==s[len-2]){
+		for(ll i=0,j=len;i<len;j--,i++){
+			ll a = s[i]-'0';
 
-		if(b[0]=='1')
-		{
-			one2++;
 		}
-		else{
-			zero2++;
-		}
-		if(zero2==one2){
-			tag2++;
-		}
-
 	}
+}
+ll conv(string s,ll len){
+	ll n = 1;
+	for(ll i=0,ll j=len;i<len;i++,j--){
+		ll a = 1;
+		for(ll k=0;k<j-1;k++){
+			a*=10;
+		}
+		ll num = (s[i]-'0')*a;
 
-	if(tag1==tag2){
-		cout<<"YES"<<endl;
+		n+=num;
 	}
-	else{
-		cout<<"NO"<<endl;
-	}
-
+	return n;
 }
 int main()
 {

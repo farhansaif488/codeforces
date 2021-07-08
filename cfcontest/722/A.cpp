@@ -13,43 +13,25 @@ using namespace std;
 
 void solve()
 {
-	ll n,one1=0,zero1=0,tag1 = 0;
-	ll one2=0,zero2=0,tag2 = 0;
-	string a,b;
+	ll n;
+	vi v;
 
-	cin>>n>>a>>b;
+	cin>>n;
+
+	ll mn = 101;
+	ll cnt = 0;
 
 	for(ll i=0;i<n;i++){
-		if(a[0]=='1')
-		{
-			one1++;
+		ll x;cin>>x;
+		if(mn > x){
+			mn = x;
+			cnt=1;
+		}else if(mn == x){
+			cnt++;
 		}
-		else{
-			zero1++;
-		}
-		if(zero1==one1){
-			tag1++;
-		}
-
-		if(b[0]=='1')
-		{
-			one2++;
-		}
-		else{
-			zero2++;
-		}
-		if(zero2==one2){
-			tag2++;
-		}
-
 	}
 
-	if(tag1==tag2){
-		cout<<"YES"<<endl;
-	}
-	else{
-		cout<<"NO"<<endl;
-	}
+	cout<<n-cnt<<endl;
 
 }
 int main()

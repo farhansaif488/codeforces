@@ -9,47 +9,37 @@ using namespace std;
 #define ld long double
 #define vi vector<ll>
 #define vd vector<ld>
+#define vc vector<char>
 
 
 void solve()
 {
-	ll n,one1=0,zero1=0,tag1 = 0;
-	ll one2=0,zero2=0,tag2 = 0;
-	string a,b;
+	bool flag = 0;
 
-	cin>>n>>a>>b;
-
-	for(ll i=0;i<n;i++){
-		if(a[0]=='1')
-		{
-			one1++;
-		}
-		else{
-			zero1++;
-		}
-		if(zero1==one1){
-			tag1++;
-		}
-
-		if(b[0]=='1')
-		{
-			one2++;
-		}
-		else{
-			zero2++;
-		}
-		if(zero2==one2){
-			tag2++;
-		}
-
+	ll n;cin>>n;
+	ll m=0,k=0;
+	for(ll i=0;i<n;i++)
+	{
+		char c;cin>>c;
+		if(c=='0')k++;
+		else m++;
 	}
 
-	if(tag1==tag2){
-		cout<<"YES"<<endl;
+	if(k==1){
+		cout<<"BOB\n"<<endl;
 	}
-	else{
-		cout<<"NO"<<endl;
+
+	if(k%2==0 && flag ==0){
+		cout<<"BOB"<<endl;
+		flag=1;
+	}else if(k%2==0 && flag==1){
+		cout<<"DRAW"<<endl;
+		flag=0;
 	}
+	else if(k%2==1 && k!=1){
+		cout<<"ALICE"<<endl;
+	}
+
 
 }
 int main()

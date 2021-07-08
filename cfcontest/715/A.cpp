@@ -13,51 +13,39 @@ using namespace std;
 
 void solve()
 {
-	ll n,one1=0,zero1=0,tag1 = 0;
-	ll one2=0,zero2=0,tag2 = 0;
-	string a,b;
+	ll n;
+	cin>>n;
 
-	cin>>n>>a>>b;
+	vi even,odd;
+
 
 	for(ll i=0;i<n;i++){
-		if(a[0]=='1')
-		{
-			one1++;
+		ll x;
+		cin>>x;
+		if(x%2){
+			odd.push_back(x);
+		}else{
+			even.push_back(x);
 		}
-		else{
-			zero1++;
-		}
-		if(zero1==one1){
-			tag1++;
-		}
-
-		if(b[0]=='1')
-		{
-			one2++;
-		}
-		else{
-			zero2++;
-		}
-		if(zero2==one2){
-			tag2++;
-		}
-
 	}
 
-	if(tag1==tag2){
-		cout<<"YES"<<endl;
+	for(ll i=0;i<odd.size();i++)
+	{
+		cout<<odd[i]<<" ";
 	}
-	else{
-		cout<<"NO"<<endl;
+	for(ll i=0;i<even.size();i++)
+	{
+		cout<<even[i]<<" ";
 	}
-
+	cout<<"\n";
 }
 int main()
 {
 	fastio;
-
+	#ifndef ONLINE_JUDGE
 	freopen("input.txt","r",stdin);
 	freopen("output.txt","w",stdout);
+	#endif
 	int t;
 	cin>>t;
 	while(t--){
